@@ -14,13 +14,14 @@
 	body {
 		width: 400px;
 	}
-	
 	.auth-instructions, #message_container {
 		margin: 20px 20px 20px 20px;
 		line-height: 17px;
 		color: #0077b5;
 	}
-	
+	.auth-instructions {
+		display: none;
+	}
 	.person { 
 		position: relative;
 		margin: 10px 0px 10px 0px;
@@ -84,6 +85,10 @@
 	<script type="text/javascript">
 	
 		function onLinkedInLoad() {
+			if( ! IN.User.isAuthorized()){
+				$(".auth-instructions").show();
+			}
+			
 			IN.Event.on(IN, "auth", onLinkedInAuth);
 		}
 
@@ -104,7 +109,7 @@
 				.result(displayPeopleSearch)
 				.error(displayPeopleSearchErrors);	
 			} else if(invalid_search){
-				showMessage("Sorry, there was a problem with your search. Please select a First and Last name.")
+				showMessage("Sorry, there was a problem with your search. Please include a First and Last name.")
 			} else {
 				showMessage("Sorry, there was a problem with your search. Please try again.")
 			}

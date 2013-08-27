@@ -7,6 +7,7 @@
     "persistent": false,
     "scripts": ["search.js"]
   },
+  "omnibox": { "keyword" : "_LI" },
   "icons": {
       "16": "LinkedIn_Logo16px.png"
     }, 
