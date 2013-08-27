@@ -1,0 +1,121 @@
+<!DOCTYPE html><html>
+<head>
+	<title>Quick Search for LinkedIn</title>
+	<script type="text/javascript" src="//platform.linkedin.com/in.js">
+	  api_key: 65or4ibtszut
+	  onLoad: onLinkedInLoad
+	  authorize: true
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.min.js"></script>
+	
+	<style>
+		body {
+			width: 400px;
+		}
+		.person { 
+			position: relative;
+			margin: 10px 0px 10px 0px;
+			padding: 0px 0px 10px 0px;
+			border-bottom: 1px solid #EEE;
+		}
+		.person-image {
+			position: absolute;
+		}
+		.person-image img {
+			width: 80px;
+		}
+		.person-detail {
+			margin: 10px 0px 10px 100px;
+			line-height: 17px;
+			text-decoration: none;
+		}
+		
+		.person-detail a {
+			text-decoration: none;
+			color: #0077b5;
+		}
+		
+		.person-detail a:hover {
+			text-decoration: underline;
+		}
+		
+		.person-detail h2 {
+			font-size: 100%;
+		}
+		
+		.person-detail h3 {
+			font-size: 80%;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<script type="IN/Login"></script>
+	<div id="search_results">
+		One Moment...
+	</div>
+	
+	
+    <script type="text/html" id="search_result_template">
+		<% _.each(people,function(person){ %>
+			<div class="person">
+				<div class="person-image">
+					<img src="<%= person.imageUrl %>">
+				</div>
+				<div class="person-detail">
+					<h2><a href="<%= person.profileUrl %>" target="_blank"><%= person.fullName%></a></h2>
+					<h3><%= person.headline %></h3>
+					<h3><%= person.location %></h3>
+				</div>
+			</div>		
+		<% }); %>
+    </script>
+	
+	<script type="text/javascript">
+	  function onLinkedInLoad() {
+	    IN.Event.on(IN, "auth", onLinkedInAuth);
+	  }
+
+	  function onLinkedInAuth() {
+		 var first_name = $.url().param('first_name');
+		 var last_name = $.url().param('last_name'); 
+		 
+	     IN.API.PeopleSearch()
+	       .fields("firstName", "lastName", "headline", "location", "pictureUrl", "siteStandardProfileRequest", "positions")
+	       .params({"first-name": first_name, "last-name": last_name, "count" : 25})
+	       .result(displayPeopleSearch)
+	       .error(displayPeopleSearchErrors);
+	   }
+
+	   function displayPeopleSearch(peopleSearch) {
+	     var $search_result = $("#search_result");
+     
+	     var members = peopleSearch.people.values; // people are stored in a different spot than earlier example
+	     
+		 var people = [];
+		 _.each(members, function(member){
+			 person = {};
+			 person.fullName = member.firstName + " " + member.lastName;
+			 person.headline = member.headline;
+			 person.location = member.location.name;
+			 person.imageUrl = member.pictureUrl;
+			 person.profileUrl = member.siteStandardProfileRequest.url;
+			 person.position = "";
+			 if(member.positions.length > 0){
+				 person.position = member.positions[0].title;
+			 }
+			 
+			 
+			 people.push(person);
+		 });
+		 
+		 var search_result_template = $("#search_result_template").html();
+		 $("#search_results").html(_.template(search_result_template, {people : people})) 
+	   }
+
+	   function displayPeopleSearchErrors(error) { /* do nothing */ }
+	</script>
+</body>
+</html>

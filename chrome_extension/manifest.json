@@ -1,0 +1,11 @@
+{
+  "name": "Quick Search for LinkedIn",
+  "description": "Search your LinkedIn network from any website  by highlighting a name and right-clicking",
+  "version": "1.0",
+  "permissions": ["contextMenus", "tabs"],
+  "background": {
+    "persistent": false,
+    "scripts": ["search.js"]
+  },
+  "manifest_version": 2
+}
