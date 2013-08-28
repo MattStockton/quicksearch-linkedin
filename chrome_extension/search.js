@@ -11,7 +11,7 @@ var linked_in_search = function(searchText){
 		}
 	}
 
-	var url = "{{file_host}}search.html";
+	var url = "http://{{aws_bucket_name}}.s3-website-us-east-1.amazonaws.com/{{extension_version}}/search.html";
 
 	if(first_name && last_name){
 		url += "?first_name=" + encodeURIComponent(first_name)   +  "&last_name=" + encodeURIComponent(last_name);
