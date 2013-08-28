@@ -1,6 +1,6 @@
 {
-  "name": "Quick Search for LinkedIn",
-  "description": "Search your LinkedIn network from any website  by highlighting a name and right-clicking",
+  "name": "Quick Search for LinkedIn™",
+  "description": "Search your LinkedIn™ network from any website by highlighting a name and right-clicking, or by typing '_LI' in the search-box followed by a tab, and typing a name.",
   "version": "1.0",
   "permissions": ["contextMenus", "tabs"],
   "background": {
