@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import json, shutil, os, codecs, zipfile
+import json, shutil, os, codecs
 from os.path import isfile, join, basename
    
 json_data = open('configuration.json')
