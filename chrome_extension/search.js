@@ -11,9 +11,8 @@ var linked_in_search = function(searchText){
 		}
 	}
 
-	var url = "http:localhost:5000/search.html";
-	//http://linkedinsearch.s3-website-us-east-1.amazonaws.com/v1.0/search.html
-  
+	var url = "{{file_host}}search.html";
+
 	if(first_name && last_name){
 		url += "?first_name=" + encodeURIComponent(first_name)   +  "&last_name=" + encodeURIComponent(last_name);
 	} else {
