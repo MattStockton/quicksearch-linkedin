@@ -1,5 +1,4 @@
 configuration.json
-build/*
-./build
+build/
 .DS_Store
 .DS_Store?

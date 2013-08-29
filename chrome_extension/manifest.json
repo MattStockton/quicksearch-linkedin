@@ -1,6 +1,6 @@
 {
   "name": "Quick Search for LinkedIn™",
-  "description": "Search your LinkedIn™ network from any website by highlighting a name and right-clicking, or by typing '_LI' in the search-box followed by a tab, and typing a name.",
+  "description": "Search your network from any site by highlighting a name and right-clicking, or by typing '_LI' in the search-box followed by a tab",
   "version": "{{extension_version}}",
   "permissions": ["contextMenus", "tabs"],
   "background": {
@@ -9,7 +9,8 @@
   },
   "omnibox": { "keyword" : "_LI" },
   "icons": {
-      "16": "LinkedIn_Logo16px.png"
+      "16": "LinkedIn_Logo16px.png",
+	  "128" : "LinkedIn_Logo128px.png"
     }, 
   "manifest_version": 2
 }
