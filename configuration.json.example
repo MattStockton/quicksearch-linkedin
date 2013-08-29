@@ -1,0 +1,9 @@
+{
+	"linkedin_api_key" : "<INSERT_YOUR_LINKEDIN_API_KEY_HERE>",
+	"extension_version" : "1.0",
+	"deploy_aws" : "True",
+	"aws_key" : "<INSERT_YOUR_AWS_KEY_HERE>",
+	"aws_secret" : "<INSERT_YOUR_AWS_SECRET_HERE>",
+	"aws_bucket_name" : "<INSERT_YOUR_DESIRED_AWS_BUCKET_NAME_HERE>",
+	"ga_tracking_code" : "<INSERT_YOUR_GA_TRACKING_CODE_HERE_OR_LEAVE_BLANK>"
+}

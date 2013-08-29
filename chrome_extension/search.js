@@ -48,6 +48,6 @@ chrome.contextMenus.onClicked.addListener(linked_in_context_handler);
 
 chrome.runtime.onInstalled.addListener(function() {
 	var context = "selection";
-	var id = chrome.contextMenus.create({"title": "Search LinkedIn for '%s'", "contexts":[context],
+	var id = chrome.contextMenus.create({"title": "Search LinkedIn™ for '%s'", "contexts":[context],
 	"id": "linkedin_search"});
 });
