@@ -131,27 +131,29 @@
 			showMessage("");
 
 			var members = peopleSearch.people.values; // people are stored in a different spot than earlier example
-	     
-		 	if(_.size(members) == 0){
+	     		 
+			var people = [];
+			_.each(members, function(member){
+				if(member && member.firstName != "private"){
+					person = {};
+					person.full_name = member.firstName + " " + member.lastName;
+					person.headline = member.headline;
+					person.location = member.location ? member.location.name : "";
+					person.image_url = member.pictureUrl;
+					person.profile_url = member.siteStandardProfileRequest ? member.siteStandardProfileRequest.url : "";
+					person.position = "";
+					if(member.positions && member.positions.length > 0){
+						person.position = member.positions[0].title;
+					}
+			 
+					people.push(person);	
+				}
+			});
+		 
+		 	if(_.size(people) == 0){
 		 		showMessage("No results found.");
 				return;
 		 	}
-		 
-			var people = [];
-			_.each(members, function(member){
-				person = {};
-				person.full_name = member.firstName + " " + member.lastName;
-				person.headline = member.headline;
-				person.location = member.location.name;
-				person.image_url = member.pictureUrl;
-				person.profile_url = member.siteStandardProfileRequest.url;
-				person.position = "";
-				if(member.positions.length > 0){
-					person.position = member.positions[0].title;
-				}
-			 
-				people.push(person);
-			});
 		 
 			var search_result_template = $("#search_result_template").html();
 			$("#search_results").html(_.template(search_result_template, { people : people})) 
