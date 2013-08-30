@@ -56,11 +56,11 @@ and pip installed to accompish this
 5. The Chrome extension itself was copied to the ./build/chrome\_extension directory. In Chrome, go to the [Settings](chrome://settings/), click 'Extensions' and check the 'Developer Mode' checkbox. 
 6. Then, click 'Load unpacked extension...' and choose the chrome\_extension directory inside of the ./build directory (Make sure to select the one in ./build and not the root, since that is the one on which the template configuration has been applied)
 
-Hopefully, you're good to try it now. Otherwise, you can just download my version from the Chrome store (see below). If you have any problems send me an email: mattstockton@gmail.com
+Hopefully, you're good to try it now. Otherwise, you can just download my version from the [Chrome store](https://chrome.google.com/webstore/detail/quick-search-for-linkedin/cbfdmjbhblgflmnjjfhhmnndgneeiomn) (see below). If you have any problems send me an email: mattstockton@gmail.com
 
 ## See Quick Search for LinkedIn™ in action
 
-Coming soon...
+If you want to install this extension from the Chrome store, you can find it [here](https://chrome.google.com/webstore/detail/quick-search-for-linkedin/cbfdmjbhblgflmnjjfhhmnndgneeiomn)
 
 ## The Future
 
